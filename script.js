@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const deleteAssetBtn = document.getElementById("delete");
+  // set asset data using local storage or hard code data
   const STORAGE_KEY = "assetsList";
   const assetFields = [
     { label: "Name", id: "name" },
@@ -36,22 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
     saveToStorage(assetData);
   }
-
-  deleteAssetBtn.addEventListener("click", () => {
-    if (editIndex === null) {
-      alert("Nothing to delete.");
-      return;
-    }
-
-    if (confirm("Are you sure you want to delete this asset?")) {
-      assetData.splice(editIndex, 1);
-      saveToStorage(assetData);
-      populateAssetTable(assetData);
-      resetForm();
-      dashboard.style.display = "block";
-      details.style.display = "none";
-    }
-  });
 
   let editIndex = null;
 
@@ -226,6 +210,24 @@ document.addEventListener("DOMContentLoaded", () => {
     resetForm();
     dashboard.style.display = "block";
     details.style.display = "none";
+  });
+
+  // Button: delete
+  const deleteAssetBtn = document.getElementById("delete");
+  deleteAssetBtn.addEventListener("click", () => {
+    if (editIndex === null) {
+      alert("Nothing to delete.");
+      return;
+    }
+
+    if (confirm("Are you sure you want to delete this asset?")) {
+      assetData.splice(editIndex, 1);
+      saveToStorage(assetData);
+      populateAssetTable(assetData);
+      resetForm();
+      dashboard.style.display = "block";
+      details.style.display = "none";
+    }
   });
 
   // Init
