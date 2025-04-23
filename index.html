@@ -1,13 +1,63 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="src/assets/1907675.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assets Module</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+    <link rel="icon" href="/assets/assets.png" type="image/x-icon" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="tileContainer">
+      <button class="tileBtn" id="jobs">Jobs</button>
+      <button class="tileBtn" id="quotes">Quotes</button>
+      <button class="tileBtn" id="inventory">Inventory</button>
+      <button class="tileBtn" id="purchaseOrders">Purchase Orders</button>
+      <button class="tileBtn" id="assets">Assets</button>
+    </div>
+
+    <div class="assetDashboardContainer">
+      <div class="button-container">
+        <button class="back-btn">< Assets</button>
+        <button class="btn" id="addAssetBtn">+ Add Asset</button>
+      </div>
+
+      <table id="assetInfoTable">
+        <tr>
+          <th>Name</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>Serial Number</th>
+          <th>In Use</th>
+        </tr>
+      </table>
+    </div>
+
+    <div class="assetsInfoContainer">
+      <div class="button-container">
+        <button class="back-to-dashboard back-btn">‹ Asset Details</button>
+      </div>
+      <div class="assetsDetails">
+        <div id="assetsInfoLabels"></div>
+
+        <div id="assetsInfoImage">
+          <div class="upload-section">
+            <div class="image-preview" id="imagePreview">
+              <span>No image selected</span>
+              <img src="" alt="Image Preview" class="preview-img" />
+            </div>
+            <label for="imageUpload" class="btn">Upload Image</label>
+            <input type="file" id="imageUpload" accept="image/*" hidden />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn" id="delete">Delete</button>
+        <button class="btn" id="saveAssetBtn">Save</button>
+      </div>
+    </div>
   </body>
 </html>
